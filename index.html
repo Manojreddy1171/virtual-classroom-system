@@ -3,17 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Classroom System</title>
+  <title>Student & Staff Login | Virtual Classroom</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to Virtual Classroom</h1>
-    <p>A web-based system for real-time attendance and assignment management.</p>
-    <div class="button-group">
-      <a href="login.html" class="btn">Login</a>
-      <a href="register.html" class="btn">Register</a>
-    </div>
+    <h1>Student & Staff Login</h1>
+    <form id="loginForm">
+      <!-- Role Selection -->
+      <label>Login As:</label>
+      <select name="role" required>
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+      </select>
+
+      <!-- Academic ID -->
+      <label>Academic ID</label>
+      <input type="text" name="academic_id" required 
+             placeholder="e.g., 152410001" pattern="152410\d{3}">
+
+      <!-- Password -->
+      <label>Password (Last 4 digits of ID)</label>
+      <input type="password" name="password" required 
+             placeholder="e.g., 0001">
+
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
   </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      // Validate password = last 4 digits of ID
+      if (data.password !== data.academic_id.slice(-4)) {
+        alert('Password must be the last 4 digits of your Academic ID');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          // Redirect based on role
+          if (data.role === 'student') {
+            window.location.href = 'student-dashboard.html';
+          } else {
+            window.location.href = 'staff-dashboard.html';
+          }
+        } else {
+          alert(result.error || 'Login failed. Check your credentials.');
+        }
+      } catch (err) {
+        alert('Network error. Please try again.');
+      }
+    });
+  </script>
 </body>
 </html>
