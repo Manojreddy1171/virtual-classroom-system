@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard - Academic Institution</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #cce7f6;
+    }
+    .bg-white {
+      background-color: #e6f4fa;
+    }
+    .text-indigo-700 {
+      color: #005b96;
+    }
+    .hover\:bg-indigo-100:hover {
+      background-color: #d0ecf7;
+    }
+    iframe {
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md flex flex-col justify-between">
+      <div>
+        <div class="p-6 text-xl font-bold text-indigo-700">Student Dashboard</div>
+        <nav class="mt-4">
+          <ul class="space-y-2">
+            <li><a href="#home" class="block px-6 py-2 hover:bg-indigo-100">🏠 Home</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">📚 My Courses</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">📝 Enrollment</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">📋 Attendance</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">📂 Assignment</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">🧪 Examination</a></li>
+            <li><a href="#" class="block px-6 py-2 hover:bg-indigo-100">👤 My Profile</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="p-6">
+        <a href="login.html" class="block w-full text-center bg-red-500 text-white py-2 rounded hover:bg-red-600">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 space-y-8">
+      <!-- Home Section -->
+      <section id="home" class="hidden">
+        <h2 class="text-2xl font-semibold mb-6 text-indigo-700">🏠 Welcome to Student Home</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          <!-- Google Calendar -->
+          <div class="bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-semibold mb-4">📅 Academic & Public Calendar</h3>
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia%2FKolkata"
+              style="border: 0" width="100%" height="500" frameborder="0" scrolling="no">
+            </iframe>
+          </div>
+
+          <!-- Notice Board -->
+          <div class="bg-white p-6 rounded shadow">
+            <h3 class="text-xl font-semibold mb-4">📢 Notice Board</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Midterm exams begin next Monday.</li>
+              <li>Project submission deadline: 10th of this month.</li>
+              <li>New course materials available in the dashboard.</li>
+              <li>Annual sports day registration ends soon.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Home button loads section
+    document.querySelector('a[href="#home"]').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById('home').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

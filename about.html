@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Prathibha School of Engineering</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f0f9ff; /* lighter blue theme */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .text-primary {
+      color: #005b96;
+    }
+    .bg-primary {
+      background-color: #005b96;
+    }
+    .bg-secondary {
+      background-color: #e6f4fa;
+    }
+    .hover-effect {
+      transition: all 0.3s ease;
+    }
+    .hover-effect:hover {
+      transform: translateY(-3px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #005b96 0%, #0083b0 100%);
+    }
+    .contact-bg {
+      background-image: url('contactpic.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(204, 231, 246, 0.9);
+    }
+    .back-button {
+      background-color: #005b96;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .back-button:hover {
+      background-color: #00457a;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="bg-primary text-white shadow-lg">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div>
+        <span class="text-xl font-bold">Prathibha School of Engineering</span>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="hover:text-blue-200">Home</a>
+        <a href="#" class="font-semibold border-b-2 border-white">About</a>
+        <a href="#" class="hover:text-blue-200">Programs</a>
+        <a href="#" class="hover:text-blue-200">Admissions</a>
+        <a href="#" class="hover:text-blue-200">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button class="mobile-menu-button">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Back Button -->
+  <div class="container mx-auto px-6 pt-6">
+    <a href="login.html" class="back-button hover-effect">
+      <i class="fas fa-arrow-left mr-2"></i> Back to Login
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-gradient text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Shaping Future Engineers</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Excellence in engineering education since 2005</p>
+      <a href="#" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover-effect hover:bg-blue-50">
+        Explore Programs
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="bg-secondary py-3">
+    <div class="container mx-auto px-6">
+      <div class="text-sm text-gray-600">
+        <a href="#" class="hover:text-primary">Home</a> > <span class="font-medium">About Us</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow container mx-auto px-6 py-12">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <!-- Main Content -->
+      <div class="lg:w-2/3">
+        <section class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+          <div class="p-8">
+            <h2 class="text-3xl font-bold text-primary mb-6">About Our Institution</h2>
+            <div class="prose max-w-none">
+              <p class="mb-6 text-gray-700 leading-relaxed">
+                Established in 2005, Prathibha School of Engineering has been at the forefront of technical education in the region. Located in Kurnavalli, Khammam District, we have consistently produced engineers who excel in both technical expertise and ethical leadership.
+              </p>
+              
+              <div class="flex items-center mb-8">
+                <div class="mr-6 text-primary">
+                  <i class="fas fa-graduation-cap text-5xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
+                  <p class="text-gray-700">
+                    To provide transformative education that combines rigorous academics with practical experience, fostering innovation, critical thinking, and social responsibility.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-center mb-8">
+                <div class="mr-6 text-primary">
+                  <i class="fas fa-eye text-5xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
+                  <p class="text-gray-700">
+                    To be recognized as a premier engineering institution that develops technically competent, socially responsible professionals capable of addressing global challenges.
+                  </p>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mb-4 mt-8">Why Choose Prathibha?</h3>
+              <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-blue-50 p-6 rounded-lg hover-effect">
+                  <div class="text-primary mb-3">
+                    <i class="fas fa-flask text-3xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2">State-of-the-Art Labs</h4>
+                  <p class="text-gray-700">Modern laboratories equipped with the latest technology for hands-on learning.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg hover-effect">
+                  <div class="text-primary mb-3">
+                    <i class="fas fa-chalkboard-teacher text-3xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2">Expert Faculty</h4>
+                  <p class="text-gray-700">Highly qualified professors with industry and research experience.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg hover-effect">
+                  <div class="text-primary mb-3">
+                    <i class="fas fa-briefcase text-3xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2">Industry Partnerships</h4>
+                  <p class="text-gray-700">Strong ties with leading companies for internships and placements.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg hover-effect">
+                  <div class="text-primary mb-3">
+                    <i class="fas fa-leaf text-3xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2">Green Campus</h4>
+                  <p class="text-gray-700">Sustainable campus with eco-friendly infrastructure and practices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+          <div class="p-8">
+            <h2 class="text-3xl font-bold text-primary mb-6">Engineering at Prathibha</h2>
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold text-primary mb-3">Our Departments</h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-primary pl-4 py-2">
+                  <h4 class="font-bold">Computer Science & Engineering</h4>
+                  <p class="text-gray-700 text-sm">Cutting-edge curriculum in AI, ML, and software development</p>
+                </div>
+                <div class="border-l-4 border-primary pl-4 py-2">
+                  <h4 class="font-bold">Electronics & Communication</h4>
+                  <p class="text-gray-700 text-sm">Focus on IoT, embedded systems, and telecommunications</p>
+                </div>
+                <div class="border-l-4 border-primary pl-4 py-2">
+                  <h4 class="font-bold">Mechanical Engineering</h4>
+                  <p class="text-gray-700 text-sm">Advanced training in design, manufacturing, and robotics</p>
+                </div>
+                <div class="border-l-4 border-primary pl-4 py-2">
+                  <h4 class="font-bold">Civil Engineering</h4>
+                  <p class="text-gray-700 text-sm">Sustainable infrastructure and smart city solutions</p>
+                </div>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-primary mb-4">The Value of Engineering Education</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-primary text-white p-2 rounded-full mr-4 mt-1">
+                  <i class="fas fa-cogs text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Problem-Solving Skills</h4>
+                  <p class="text-gray-700">Engineering develops systematic approaches to analyze and solve complex problems.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary text-white p-2 rounded-full mr-4 mt-1">
+                  <i class="fas fa-lightbulb text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Innovation & Creativity</h4>
+                  <p class="text-gray-700">Engineers drive technological advancement and create solutions that improve lives.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary text-white p-2 rounded-full mr-4 mt-1">
+                  <i class="fas fa-globe text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Global Opportunities</h4>
+                  <p class="text-gray-700">Engineering qualifications are recognized worldwide with diverse career paths.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary text-white p-2 rounded-full mr-4 mt-1">
+                  <i class="fas fa-chart-line text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Career Growth</h4>
+                  <p class="text-gray-700">Continuous learning opportunities lead to leadership roles in various industries.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:w-1/3">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8 sticky top-8">
+          <div class="bg-primary text-white p-4">
+            <h3 class="text-xl font-bold">Quick Links</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li><a href="#" class="flex items-center text-primary hover:text-blue-800">
+                <i class="fas fa-map-marker-alt mr-3"></i> Campus Tour
+              </a></li>
+              <li><a href="#" class="flex items-center text-primary hover:text-blue-800">
+                <i class="fas fa-calendar-alt mr-3"></i> Academic Calendar
+              </a></li>
+              <li><a href="#" class="flex items-center text-primary hover:text-blue-800">
+                <i class="fas fa-newspaper mr-3"></i> News & Events
+              </a></li>
+              <li><a href="#" class="flex items-center text-primary hover:text-blue-800">
+                <i class="fas fa-book mr-3"></i> Research Publications
+              </a></li>
+              <li><a href="#" class="flex items-center text-primary hover:text-blue-800">
+                <i class="fas fa-users mr-3"></i> Faculty Directory
+              </a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Section with Background Image -->
+        <div class="rounded-xl shadow-md overflow-hidden">
+          <div class="contact-bg text-gray-800">
+            <div class="bg-primary text-white p-4">
+              <h3 class="text-xl font-bold">Contact Information</h3>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h4 class="font-bold text-gray-800 mb-2">Address</h4>
+                <p class="text-gray-700">Kurnavalli, Thallada Mandal<br>Khammam District, 507167<br>Beside Mahindra Enterprises, Achi Reddy Colony</p>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-gray-800 mb-2">Phone</h4>
+                <p class="text-gray-700">+91 XXXXX XXXXX (Admissions)<br>+91 XXXXX XXXXX (Administration)</p>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-gray-800 mb-2">Email</h4>
+                <p class="text-gray-700">info@prathibhaengineering.edu<br>admissions@prathibhaengineering.edu</p>
+              </div>
+              <div class="mt-6">
+                <a href="#" class="bg-primary text-white py-2 px-6 rounded-full inline-block hover-effect hover:bg-blue-800">
+                  <i class="fas fa-directions mr-2"></i> Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-primary text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Prathibha School of Engineering</h3>
+          <p class="text-blue-100">Excellence in engineering education since 2005. Committed to developing technically proficient, socially responsible professionals.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-blue-100 hover:text-white">Home</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">About Us</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">Programs</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">Admissions</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Programs</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-blue-100 hover:text-white">B.Tech Programs</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">M.Tech Programs</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">Research Programs</a></li>
+            <li><a href="#" class="text-blue-100 hover:text-white">Short-term Courses</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Connect With Us</h4>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-blue-100 hover:text-white text-xl"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-blue-100 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-blue-100 hover:text-white text-xl"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-blue-100 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-blue-100 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p class="text-blue-100">Subscribe to our newsletter</p>
+          <div class="mt-2 flex">
+            <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l text-gray-800 w-full">
+            <button class="bg-blue-600 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-blue-600 mt-8 pt-8 text-center text-blue-100">
+        <p>&copy; 2025 Prathibha School of Engineering. All rights reserved.</p>
+        <div class="mt-2 text-sm">
+          <a href="#" class="hover:text-white">Privacy Policy</a> | 
+          <a href="#" class="hover:text-white">Terms of Service</a> | 
+          <a href="#" class="hover:text-white">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple mobile menu toggle functionality
+    document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+      // This would toggle a mobile menu in a complete implementation
+      alert('Mobile menu would open here in a complete implementation');
+    });
+  </script>
+
+</body>
+</html>

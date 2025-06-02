@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cce7ff;
+            background-image: url('5153829.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 500px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1E90FF;
+        }
+        
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #0f0fe9;
+        }
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0 16px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        /* Gender toggle buttons */
+        .gender {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .gender label {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gender input[type="radio"] {
+            display: none;
+        }
+        
+        .gender input[type="radio"]:checked + label {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        button, 
+        input[type="submit"],
+        .register-button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #0f0fe9;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        button:hover,
+        input[type="submit"]:hover,
+        .register-button:hover {
+            background-color: #4141fc;
+        }
+        
+        /* Password validation styles */
+        #password-message {
+            display: none;
+            background: #f9f9f9;
+            color: #000;
+            position: relative;
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        #password-message h3 {
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        #password-message p {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .valid {
+            color: green;
+        }
+        
+        .valid:before {
+            position: absolute;
+            left: 0;
+            content: "✓";
+        }
+        
+        .invalid {
+            color: red;
+        }
+        
+        .invalid:before {
+            position: absolute;
+            left: 0;
+            content: "✗";
+        }
+        
+        .section-divider {
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .modal-title {
+            color: #1E90FF;
+            margin-bottom: 15px;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+        }
+        
+        .credential-box {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .credential-item {
+            margin: 10px 0;
+        }
+        
+        .credential-label {
+            font-weight: bold;
+        }
+        
+        .close-button {
+            background-color: #0f0fe9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form action="#" method="post" id="registrationForm">
+            <!-- Personal Information -->
+            <h3>Personal Information</h3>
+            
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="middle-name">Middle Name:</label>
+            <input type="text" id="middle-name" name="middle-name">
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="father-name">Father's Name:</label>
+            <input type="text" id="father-name" name="father-name" required>
+
+            <label>Gender:</label>
+            <div class="gender">
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="Female" required>
+                <label for="female">Female</label>
+            </div>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Account Information -->
+            <h3>Account Information</h3>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10-digit number" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" 
+                   id="password" 
+                   name="password" 
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                   title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters" 
+                   required>
+            
+            <div id="password-message">
+                <h3>Password must contain:</h3>
+                <p class="password-message-item invalid">At least <b>one lowercase letter</b></p>
+                <p class="password-message-item invalid">At least <b>one uppercase letter</b></p>
+                <p class="password-message-item invalid">At least <b>one number</b></p>
+                <p class="password-message-item invalid">Minimum <b>8 characters</b></p>
+            </div>
+            
+            <label for="confirm-password">Re-enter Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <div id="password-match-message" class="invalid" style="display: none; margin-top: -10px; margin-bottom: 15px;">Passwords do not match</div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Academic Information -->
+            <h3>Academic Information</h3>
+
+            <label for="program">Program:</label>
+            <select id="program" name="program" required>
+                <option value="">--Select Program--</option>
+                <option value="CSE">CSE</option>
+                <option value="AIML">AIML</option>
+                <option value="AIDS">AIDS</option>
+                <option value="IT">IT</option>
+                <option value="AI">AI</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="Civil">Civil</option>
+                <option value="Mechanical">Mechanical</option>
+            </select>
+
+            <label for="course">Course:</label>
+            <select id="course" name="course" required>
+                <option value="">--Select Course--</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="B.Sc">B.Sc</option>
+                <option value="BCA">BCA</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MBA">MBA</option>
+            </select>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Address Information -->
+            <h3>Address Information</h3>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" pattern="\d{6}" placeholder="Enter Pincode" oninput="fillAddress()" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+
+            <!-- Register Button with Link -->
+            <a href="register.html" class="register-button">Register</a>
+        </form>
+    </div>
+
+    <script>
+        // Password validation
+        var passwordInput = document.getElementById("password");
+        var confirmPasswordInput = document.getElementById("confirm-password");
+        var passwordMessageItems = document.getElementsByClassName("password-message-item");
+        var passwordMessage = document.getElementById("password-message");
+        var passwordMatchMessage = document.getElementById("password-match-message");
+        
+        passwordInput.onfocus = function () {
+            passwordMessage.style.display = "block";
+        }
+        
+        // After clicking outside of password input hide the message
+        passwordInput.onblur = function () {
+            passwordMessage.style.display = "none";
+        }
+        
+        // Check if passwords match
+        function checkPasswordsMatch() {
+            if(confirmPasswordInput.value === '') {
+                passwordMatchMessage.style.display = "none";
+            } else if(passwordInput.value !== confirmPasswordInput.value) {
+                passwordMatchMessage.style.display = "block";
+                passwordMatchMessage.className = "invalid";
+                passwordMatchMessage.textContent = "Passwords do not match";
+                return false;
+            } else {
+                passwordMatchMessage.style.display = "block";
+                passwordMatchMessage.className = "valid";
+                passwordMatchMessage.textContent = "Passwords match";
+                return true;
+            }
+            return false;
+        }
+        
+        confirmPasswordInput.onkeyup = function() {
+            checkPasswordsMatch();
+        };
+        
+        passwordInput.onkeyup = function () {
+            // checking lowercase letters
+            let lowercaseRegex = /[a-z]/g;
+            if (passwordInput.value.match(lowercaseRegex)) {
+                passwordMessageItems[0].classList.remove("invalid");
+                passwordMessageItems[0].classList.add("valid");
+            } else {
+                passwordMessageItems[0].classList.remove("valid");
+                passwordMessageItems[0].classList.add("invalid");
+            }
+            
+            // checking uppercase letters
+            let uppercaseRegex = /[A-Z]/g;
+            if (passwordInput.value.match(uppercaseRegex)) {
+                passwordMessageItems[1].classList.remove("invalid");
+                passwordMessageItems[1].classList.add("valid");
+            } else {
+                passwordMessageItems[1].classList.remove("valid");
+                passwordMessageItems[1].classList.add("invalid");
+            }
+            
+            // checking the number
+            let numbersRegex = /[0-9]/g;
+            if (passwordInput.value.match(numbersRegex)) {
+                passwordMessageItems[2].classList.remove("invalid");
+                passwordMessageItems[2].classList.add("valid");
+            } else {
+                passwordMessageItems[2].classList.remove("valid");
+                passwordMessageItems[2].classList.add("invalid");
+            }
+            
+            // Checking length of the password
+            if (passwordInput.value.length >= 8) {
+                passwordMessageItems[3].classList.remove("invalid");
+                passwordMessageItems[3].classList.add("valid");
+            } else {
+                passwordMessageItems[3].classList.remove("valid");
+                passwordMessageItems[3].classList.add("invalid");
+            }
+            
+            // If confirm password field has a value, check if passwords match
+            if(confirmPasswordInput.value !== '') {
+                checkPasswordsMatch();
+            }
+        }
+        
+        // Pincode to City and Address mapping
+        const pincodeData = {
+            "110001": { city: "New Delhi", address: "Connaught Place, New Delhi" },
+            "500001": { city: "Hyderabad", address: "Abids, Hyderabad" },
+            "400001": { city: "Mumbai", address: "Fort, Mumbai" },
+            "600001": { city: "Chennai", address: "Egmore, Chennai" }
+        };
+
+        // Function to automatically fill City and Address based on Pincode
+        function fillAddress() {
+            const pincode = document.getElementById('pincode').value;
+            const cityField = document.getElementById('city');
+            const addressField = document.getElementById('address');
+
+            if (pincodeData[pincode]) {
+                cityField.value = pincodeData[pincode].city;
+                addressField.value = pincodeData[pincode].address;
+            } else {
+                // Leave fields as they are if user has entered data manually
+                if (!cityField.value && !addressField.value) {
+                    cityField.value = '';
+                    addressField.value = '';
+                }
+            }
+        }
+        
+        // Local storage functions
+        function saveRegistration(formData) {
+            // Create a registration object from form data
+            const registration = {
+                firstName: formData.get('first-name'),
+                middleName: formData.get('middle-name'),
+                lastName: formData.get('last-name'),
+                fatherName: formData.get('father-name'),
+                gender: formData.get('gender'),
+                dob: formData.get('dob'),
+                username: formData.get('username'),
+                email: formData.get('email'),
+                mobile: formData.get('mobile'),
+                password: formData.get('password'),
+                program: formData.get('program'),
+                course: formData.get('course'),
+                pincode: formData.get('pincode'),
+                city: formData.get('city'),
+                address: formData.get('address')
+            };
+            
+            try {
+                // Save to local storage
+                localStorage.setItem('studentRegistration_' + registration.username, JSON.stringify(registration));
+                return true;
+            } catch (e) {
+                console.error('Error saving registration: ', e);
+                return false;
+            }
+        }
+        
+        // Show registration confirmation modal
+        function showRegistrationModal(username) {
+            const modal = document.getElementById('registrationModal');
+            document.getElementById('saved-username').textContent = username;
+            modal.style.display = 'block';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('registrationModal').style.display = 'none';
+            // Optionally reset the form
+            document.getElementById('registrationForm').reset();
+        }
+        
+        // Form submission validation
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            let isValid = true;
+            
+            // Check password requirements
+            if (!password.match(/[a-z]/g) || 
+                !password.match(/[A-Z]/g) || 
+                !password.match(/[0-9]/g) || 
+                password.length < 8) {
+                isValid = false;
+                alert("Please ensure your password meets all requirements.");
+                passwordMessage.style.display = "block";
+                return;
+            }
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                isValid = false;
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
+            
+            if (isValid) {
+                const formData = new FormData(this);
+                if (saveRegistration(formData)) {
+                    showRegistrationModal(formData.get('username'));
+                } else {
+                    alert("There was an error saving your registration. Please try again.");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
