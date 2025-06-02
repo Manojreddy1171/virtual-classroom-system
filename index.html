@@ -4,7 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Virtual Classroom System</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .overlay {
+      background: url('id.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .content-box {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .content-box h1 {
+      font-size: 2.5rem;
+      color: #4e54c8;
+      margin-bottom: 10px;
+    }
+
+    .content-box p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      margin: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #4e54c8;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #3b41aa;
+    }
+
+    .btn-secondary {
+      background-color: #8f94fb;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #6b70e5;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: #333;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      width: 250px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
 </head>
 <body>
   <div class="overlay">
