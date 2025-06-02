@@ -1,38 +1,34 @@
+require('dotenv').config();
 const express = require('express');
-const { Pool } = require('pg');
-const bcrypt = require('bcryptjs');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+const authRoutes = require('./routes/auth');
+const attendanceRoutes = require('./routes/attendance');
+const assignmentRoutes = require('./routes/assignments');
+const db = require('./config/db');
+
 const app = express();
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'virtual_classroom',
-  password: 'your_password',
-  port: 5432,
-});
-
+// Middleware
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Login endpoint
-app.post('/api/login', async (req, res) => {
-  const { academic_id, password } = req.body;
-  const lastFourDigits = academic_id.slice(-4);
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/assignments', assignmentRoutes);
 
-  if (password !== lastFourDigits) {
-    return res.status(401).json({ error: 'Password must be last 4 digits of Academic ID' });
+// Database connection
+db.connect((err) => {
+  if (err) {
+    console.error('Database connection failed:', err.stack);
+    return;
   }
-
-  const result = await pool.query(
-    'SELECT * FROM users WHERE academic_id = $1 AND password_hash = crypt($2, password_hash)',
-    [academic_id, lastFourDigits]
-  );
-
-  if (result.rows.length === 0) {
-    return res.status(401).json({ error: 'Invalid Academic ID/Password' });
-  }
-  res.json({ success: true });
+  console.log('Connected to database.');
 });
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
