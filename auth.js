@@ -64,7 +64,13 @@
                 loginSuccessMsg.style.display = 'block';
 
                 setTimeout(() => {
-                    window.location.href = currentUserType === 'student' ? 'student-dashboard.html' : 'faculty-dashboard.html';
+                    if (currentUserType === 'student') {
+                        window.location.href = 'student-dashboard.html';
+                    }
+                    // Optional: Add faculty redirect or message
+                    // else {
+                    //     alert('Faculty login successful, but no redirect set.');
+                    // }
                 }, 2000);
             } else {
                 loginPasswordError.textContent = 'Invalid email or password';
